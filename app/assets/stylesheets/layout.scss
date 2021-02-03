@@ -1,0 +1,44 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  margin-bottom: 56px;
+  main {
+    height: 100%;
+    margin-top: 56px; // height of header
+    margin-bottom: 56px; // height of footer
+    // border: 1px solid red;
+  }
+
+  nav#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    // height: 56px;
+    width: 100%;
+  }
+
+  .flash {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    min-height: 56px;
+    z-index: 1234;
+    background-color: orange;
+    span {
+      font-size: 18px;
+      // color: gold;  // white; // #9d9d9d;
+    }
+
+    .flash_close:hover {
+      cursor: pointer;
+    }
+
+    &.notice {
+      background: #212121;
+    }
+  }
+}

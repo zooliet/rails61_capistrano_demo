@@ -1,0 +1,12 @@
+<div class="flash <%= name %> d-flex flex-row justify-content-between"
+	data-controller='flash' data-flash-target='element'>
+  <div style="width: 5%"></div>
+  <div class='d-flex align-items-center'>
+    <span class='text-warning'><%= msg %></span>
+  </div>
+  <div class='d-flex align-items-center' style="width: 5%">
+    <span class='flash_close text-muted' data-action="click->flash#close">
+      <i class="fa fa-times-circle"></i>
+    </span>    
+  </div>
+</div>
