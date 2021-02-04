@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: rails61_capistrano_demo_production
-  username: rails61_capistrano_demo
+  username: deploy
   password: <%= ENV['RAILS61_CAPISTRANO_DEMO_DATABASE_PASSWORD'] %>
