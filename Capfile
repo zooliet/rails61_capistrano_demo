@@ -20,5 +20,8 @@ install_plugin Capistrano::Puma::Jungle # if you need the jungle tasks
 install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
 install_plugin Capistrano::Puma::Systemd
 
+require 'capistrano/rails/console'
+require 'capistrano/maintenance'
+
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

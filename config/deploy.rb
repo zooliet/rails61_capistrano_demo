@@ -3,7 +3,6 @@ lock "~> 3.15.0"
 
 set :application, "demo"
 set :repo_url, "git@github.com:zooliet/rails61_capistrano_demo.git"
-set :user, "deploy"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -48,6 +47,6 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 set :puma_workers, 2
 set :puma_preload_app, true
 set :puma_init_active_record, true
-set :nginx_server_name, "144.126.220.127 rekcle.com"
+set :nginx_server_name, "144.126.220.127 rekcle.com www.rekcle.com"
 set :rbenv_custom_path, "/home/deploy/.rbenv"
-set :puma_user, fetch(:user)
+set :puma_user, "root"
