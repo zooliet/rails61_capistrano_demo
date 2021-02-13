@@ -1,7 +1,8 @@
-<div class='container'>
-  <h1>New Todo</h1>
 
-  <%= render 'form', todo: @todo %>
 
-  <%= link_to 'Back', todos_path %>
-</div>
+<%= turbo_frame_tag 'new_todo' do %>
+  <div>
+    <h4>New Todo</h4>
+    <%= render 'form', { todo: @todo } %>
+  </div>
+<% end %>

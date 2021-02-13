@@ -40,13 +40,25 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+##
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 # set :rbenv_ruby, '3.0.0'
+set :rbenv_custom_path, "/home/deploy/.rbenv"
 
+##
 set :puma_workers, 2
 set :puma_preload_app, true
 set :puma_init_active_record, true
+
+set :nginx_config_name, "#{fetch(:application)}_#{fetch(:stage)}"
 set :nginx_server_name, "144.126.220.127 rekcle.com www.rekcle.com"
-set :rbenv_custom_path, "/home/deploy/.rbenv"
-set :puma_user, "root"
+
+# set :nginx_ssl_certificate, "/etc/ssl/certs/#{fetch(:nginx_config_name)}.crt"
+set :nginx_ssl_certificate, "/etc/letsencrypt/live/rekcle.com/fullchain.pem"
+
+# set :nginx_ssl_certificate_key, "/etc/ssl/private/#{fetch(:nginx_config_name)}.key"
+set :nginx_ssl_certificate_key, "/etc/letsencrypt/live/rekcle.com/privkey.pem"
+    
+set :nginx_use_ssl, true
+set :nginx_use_http2, true

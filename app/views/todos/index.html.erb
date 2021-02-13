@@ -1,27 +1,15 @@
 <div class='container'>
-<h1>Todos</h1>
+  <h1>Todos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <%= turbo_stream_from 'todos' %>
 
-  <tbody>
-    <% @todos.each do |todo| %>
-      <tr>
-        <td><%= todo.name %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= turbo_frame_tag 'todos' do %>
+    <%= render @todos %>
+  <% end %>
 
-<br>
+  <%#= link_to 'New Todo', new_todo_path %>
+  <%= turbo_frame_tag 'new_todo', src: new_todo_path, target: '_top' do %>
+    <span><%= Time.now %></span>
+  <% end %>
 
-<%= link_to 'New Todo', new_todo_path %>
 </div>

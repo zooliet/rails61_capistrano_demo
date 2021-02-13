@@ -20,5 +20,6 @@
       <% flash.each do |name, msg| %>
         <%= render 'layouts/flash', name: name, msg: msg %>
       <% end %>
+      <%= render 'layouts/flash', name: 'notice', msg: 'test' %>
     </body>
 </html>

@@ -15,4 +15,4 @@ end
 #   invoke "puma:nginx_config"
 # end
 
-after 'puma:nginx_config', 'nginx:restart'
+after 'puma:nginx_config', 'nginx:reload' # or restart?

@@ -21,17 +21,24 @@ class TodosController < ApplicationController
 
   # POST /todos or /todos.json
   def create
-    @todo = Todo.new(todo_params)
-
+    @todo = Todo.create!(todo_params)
     respond_to do |format|
-      if @todo.save
-        format.html { redirect_to @todo, notice: "Todo was successfully created." }
-        format.json { render :show, status: :created, location: @todo }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
+      format.turbo_stream
+      format.html { redirect_to @todo }
     end
+
+    # @todo = Todo.new(todo_params)
+
+    # respond_to do |format|
+    #   if @todo.save
+    #     format.turbo_stream
+    #     # format.html { redirect_to todos_path, notice: "Todo was successfully created." }
+    #     format.json { render :show, status: :created, location: @todo }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @todo.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /todos/1 or /todos/1.json
@@ -51,6 +58,7 @@ class TodosController < ApplicationController
   def destroy
     @todo.destroy
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to todos_url, notice: "Todo was successfully destroyed." }
       format.json { head :no_content }
     end

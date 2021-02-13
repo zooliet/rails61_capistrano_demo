@@ -1,0 +1,13 @@
+<%= turbo_frame_tag todo do %>
+  <div class="row mb-3">
+    <div class="col-8">
+      <%= todo.name %>
+    </div>
+
+    <div class="col-4">
+      <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <hr>
+    
+<% end %>
